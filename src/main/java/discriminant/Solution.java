@@ -1,31 +1,31 @@
 package discriminant;
 
 public class Solution {
-    private double x1,x2;
+    private int x1,x2;
 
-    public void setX1(double x1) {
+    public void setX1(int x1) {
         this.x1 = x1;
     }
 
-    public void setX2(double x2) {
+    public void setX2(int x2) {
         this.x2 = x2;
     }
 
-    public double getX1() {
+    public int getX1() {
         return x1;
     }
 
-    public double getX2() {
+    public int getX2() {
         return x2;
     }
 }
 
 class DiscriminantSolver {
 
-    public static Solution quadraticEquation(double a, double b, double c) {
+    public static Solution quadraticEquation(int a, int b, int c) {
 
 
-        double discriminant = solveDiscriminant(a, b, c);
+        int discriminant = solveDiscriminant(a, b, c);
         if (discriminant > 0)
             return rootsWhereDiscriminantIsMoreThanZero(discriminant, a, b);
         else if (discriminant == 0)
@@ -34,24 +34,24 @@ class DiscriminantSolver {
         return null; // Discriminant is less than zero
     }
 
-    private static double solveDiscriminant(double a, double b, double c) {
-        return Math.pow(b, 2) - (4 * a * c);
+    private static int solveDiscriminant(int a, int b, int c) {
+        return (int) (Math.pow(b, 2) - (4 * a * c));
     }
 
-    private static Solution rootsWhereDiscriminantIsMoreThanZero(double d, double a, double b) {
+    private static Solution rootsWhereDiscriminantIsMoreThanZero(int d, int a, int b) {
         Solution solution = new Solution();
-        double x1;
-        double x2;
-        x1 = (-b + Math.sqrt(d)) / (2 * a);
-        x2 = (-b - Math.sqrt(d)) / (2 * a);
+        int x1;
+        int x2;
+        x1 = (int) ((-b + Math.sqrt(d)) / (2 * a));
+        x2 = (int) ((-b - Math.sqrt(d)) / (2 * a));
         solution.setX1(x1);
         solution.setX2(x2);
         return solution;
     }
 
-    private static Solution rootsWhereDiscriminantIsEqualToZero(double a, double b) {
+    private static Solution rootsWhereDiscriminantIsEqualToZero(int a, int b) {
         Solution solution = new Solution();
-        double x;
+        int x;
         x = -b / (2 * a);
         solution.setX1(x);
         solution.setX2(x);
